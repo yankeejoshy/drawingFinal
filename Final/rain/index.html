@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Rain</title>
+    <style>
+      body, html {
+        margin: 0; padding: 0;
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+
+    </style>
+  </head>
+  <body>
+    <canvas width="500" height="500"></canvas>
+    <script>
+      var width; var height; var pxScale = window.devicePixelRatio;
+
+      var canvas = document.querySelector("canvas");
+      var context = canvas.getContext("2d");
+
+      var dpr = 10; // drops per row, also, total number of rows
+
+      var rainArray = []; // array of raindrops
+      for (let i = 0; i < dpr*dpr; i++) {
+        if (Math.random() < 0.2) {
+          if (Math.random() < 1) {
+            rainArray.push(2); // falling raindrop
+          }
+          else {
+            rainArray.push(1); // stationary raindrop
+          }
+        }
+        else {
+          rainArray.push(0); // empty
+        }
+      }
+
+      function setup() {
+        width = window.innerWidth; height = window.innerHeight;
+        canvas.style.width = width + "px"; canvas.style.height = height + "px";
+        canvas.width = width * pxScale; canvas.height = height * pxScale;
+        context.scale(pxScale, pxScale);
+
+        draw();
+      }
+
+      function checkBelow(rainArray, index) {
+
+        let column = index % dpr;
+        let row = (index - column)/dpr;
+        if (row + 1 > dpr) {
+          return "bottom";
+        }
+        else {
+          let newIndex = (row+1) * dpr + column; // index of drop below
+          if (rainArray[newIndex] == 0) {
+            return "empty";
+          }
+          else {
+            return "filled";
+          }
+        }
+      }
+
+      function draw() {
+        context.clearRect(0, 0, width, height);
+
+        for (let row = 0; row < dpr; row++) {
+          for (let column = 0; column < dpr; column++) {
+            let index = row * dpr + column;
+            if (rainArray[index] == 0) {
+              context.fillStyle = "darkgrey";
+            }
+            else {
+              context.fillStyle = "grey";
+            }
+            context.save();
+            context.translate(width/(dpr*2), width/(dpr*2));
+            context.beginPath();
+            context.arc(column * (width/dpr), row * (width/dpr), width/(dpr*2), 0, Math.PI*2);
+            context.fill();
+            context.restore();
+          }
+        }
+
+        // update raindrops
+        for (let i = 0; i < rainArray.length; i++) {
+          if (rainArray[i] == 3) rainArray[i] = 2;
+        }
+        for (let i = 0; i < rainArray.length; i++) {
+          if (rainArray[i] == 2) {
+            let cellBelow = checkBelow(rainArray, i);
+            if (cellBelow == "bottom") {
+              rainArray[i] = 0;
+            }
+            else if (cellBelow == "empty") {
+              rainArray[i] = 0;
+              rainArray[i + dpr] = 3;
+            }
+            else if (cellBelow == "filled") {
+              rainArray[i + dpr*2] = 3;
+              rainArray[i] = 0;
+            }
+          }
+        }
+        setTimeout(draw, 2000);
+      }
+
+      window.addEventListener("load", setup);
+
+
+    </script>
+  </body>
+
+</html>

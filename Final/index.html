@@ -5,69 +5,32 @@
   <head>
     <meta charset="utf-8">
     <title>Navigation Page</title>
-    <style>
-      html, body {
-        margin: 0; padding: 0;
-        text-align: center;
-      }
-
-      #clock {
-        width: 400px;
-        height: 400px;
-        margin: auto;
-        border-radius: 200px;
-        border: 1px solid black;
-        background-color: grey;
-      }
-
-      #nine {
-        position: relative;
-        top: 75px;
-        right: 180px;
-      }
-
-      #three {
-        position: relative;
-        top: 143px;
-        left: 180px;
-      }
-
-      #six {
-        position: relative;
-        top: 280px;
-      }
-
-      #middle {
-        background-color: white;
-        width: 38px; height: 38px;
-        border-radius: 25px;
-        border: 6px solid black;
-        position: relative;
-        left: 175px;
-        top: 20px;
-      }
-
-      #hand {
-        position: relative;
-        width: 130px; height: 20px;
-        border-radius: 10px;
-        top: -15px;
-        left: 40px;
-        border: 3px solid black;
-        background-color: white;
-      }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Main page</h1>
-    <div id="clock">
-      <p id="twelve">XII</p>
-      <p id="three">III</p>
-      <p id="six">VI</p>
-      <p id="nine">IX</p>
-      <div id="middle"></div>
-      <div id="hand"></div>
+    <div id="container">
+      <div id="outer">
+        <div id="clock">
+          <div class="upArrow" id="hour1up"></div>
+          <div class="downArrow" id="hour1down"></div>
+          <div class="upArrow" id="hour2up"></div>
+          <div class="downArrow" id="hour2down"></div>
+          <div class="upArrow" id="min1up"></div>
+          <div class="downArrow" id="min1down"></div>
+          <div class="upArrow" id="min2up"></div>
+          <div class="downArrow" id="min2down"></div>
+          <div id="hour1">0</div>
+          <div id="hour2">0</div>
+          <div id="colon">:</div>
+          <div id="min1">0</div>
+          <div id="min2">0</div>
+        </div>
+      </div>
+      <div id="btn"></div>
     </div>
+
+    <script src="script.js"></script>
   </body>
 
 </html>

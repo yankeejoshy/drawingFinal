@@ -1,0 +1,103 @@
+html, body {
+  margin: 0; padding: 0;
+  text-align: center;
+  font-family: 'Graduate', cursive;
+  font-size: 400%;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 80% 20%;;
+}
+
+#btn {
+  background-color: grey;
+  width: 100px; height: 100px;
+  border-radius: 55px;
+  border: 10px solid black;
+  margin-top: 80%;
+}
+
+#outer {
+  width: 80%;
+  height: auto;
+  margin: auto;
+  margin-top: 10%;
+  border-radius: 50px;
+  border: 1px solid black;
+  background-color: black;
+}
+
+#clock {
+  margin: 10px 10px 10px 10px;
+  background-color: grey;
+  border-radius: 40px;
+  border: 1px grooved black;
+  display: grid;
+  grid-template-columns: 3% 18% 3% 18% 3% 9% 3% 18% 3% 18% 3%;
+  grid-template-rows: 10% 80% 10%;
+  grid-template-areas:
+    ". h1U . h2U . . . m1U . m2U ."
+    ". hour1 . hour2 . colon . min1 . min2 ."
+    ". h1D . h2D . . . m1D . m2D ."
+  ;
+}
+
+.upArrow {
+  margin: auto;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 30px solid black;
+}
+
+.downArrow {
+  margin: auto;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 30px solid black;
+}
+
+#hour1up {
+  grid-area: h1U;
+}
+#hour2up {
+  grid-area: h2U;
+}
+#min1up {
+  grid-area: m1U;
+}
+#min2up {
+  grid-area: m2U;
+}
+#hour1down {
+  grid-area: h1D;
+}
+#hour2down {
+  grid-area: h2D;
+}
+#min1down {
+  grid-area: m1D;
+}
+#min2down {
+  grid-area: m2D;
+}
+
+#hour1 {
+  grid-area: hour1;
+}
+#hour2 {
+  grid-area: hour2;
+}
+#colon {
+  grid-area: colon;
+}
+#min1 {
+  grid-area: min1;
+}
+#min2 {
+  grid-area: min2;
+}

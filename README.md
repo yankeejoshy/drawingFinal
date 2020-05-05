@@ -11,6 +11,12 @@ I created a bare-bones, ugly clock with a non-functional hour hand. I decided on
 Work will have to be done to get the color of the clock face right. I think I will either go with a different, softer hue of grey, or maybe even a light bronze.
 I will also have to find a different, more stylistic font for the numbers on the face.
 One of the challenges of animating will be translating the hour hand the correct number of pixels as it rotates around the different times.
+### Draft 2 (commit 3)
+Didn't actually change anything yet, but I realized a fatal flaw with my plan - a clock usually spans 12 hours. As a result, sunrise and nighttime overlap on a 12 hour clock. X.X
+### Final (commit 4)
+In the end, I decided to go with a digital clock. Spent a lot of time making the numbers work and preventing invalid entries of 24 hour time (e.g. no 2800hrs). Changing the hour correspondingly when the minutes exceeded 59, or went below 00, was also another fun challenge.
+There are still some bugs that I will hope to fix after submission, but currently the page works and the user cannot break the page.
+Another problem I wish I solved was that the page would not work on smaller screen sizes.
 
 ## Sunrise page
 The focus of this page will be, of course, the sun rising. I strove to make the animation as smooth and as balanced as I could. I also decided to give it a little x-translation, because suns rarely just rise straight up.
@@ -42,3 +48,11 @@ However, I was dissatisfied here with single flashes of light, because lightning
 A seemingly straightforward page that turned out to have many small, really persistent bugs and little issues.
 ### Credits
 “Sound effects obtained from https://www.zapsplat.com“
+
+## Night Page
+I spent a while thinking of inspiration for the night scene, and I thought - night time has to be about the moon. I'm probably going to use 3.js for this, creating a night-sky globe surrounding with a 3d moon sphere in the middle. Emphasis will probably be on making the lighting look good on the surface of the moon sphere.
+### Final (commit 4)
+This was hard. I changed my mind a lot, especially about how to do the background. In the end, I went with a lovely sky picture I found on unSplash by Patrick Fore. Beautiful.
+### Credits
+Photo by Patrick Fore on Unsplash
+Song, *Wet Hands*, by C418, from the game *Minecraft*
